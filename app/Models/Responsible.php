@@ -8,4 +8,15 @@ use Illuminate\Database\Eloquent\Model;
 class Responsible extends Model
 {
     use HasFactory;
+
+    protected $table = 'respocibles';
+
+    protected $fillable = [
+        'name', 'document', 'phone'
+    ];
+    
+    public function races()
+    {
+        return $this->hasMany(Race::class);
+    }
 }

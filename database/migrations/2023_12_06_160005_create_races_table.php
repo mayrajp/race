@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->dateTime('start_date');
+            $table->dateTime('end_date');
             $table->decimal('prize_value', 10,2);
             $table->boolean('is_canceled');
             $table->integer('maximum_number_of_drivers');
