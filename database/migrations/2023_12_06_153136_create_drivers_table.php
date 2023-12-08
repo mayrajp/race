@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('document');
             $table->integer('number');
+            $table->boolean('is_active');
             $table->timestamps();
         });
     }

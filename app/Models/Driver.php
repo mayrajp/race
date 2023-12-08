@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class Driver extends Model
 {
@@ -12,11 +13,16 @@ class Driver extends Model
     protected $table = 'drivers';
 
     protected $fillable = [
-        'name', 'document', 'number'
+        'name', 'document', 'number', 'is_active'
     ];
 
-    public function car()
+    public function cars()
     {
-        return $this->hasOne(Car::class);
+        return $this->hasMany(Car::class);
+    }
+    
+    public function races() : BelongsToMany
+    {
+        return $this->belongsToMany(Races::class, 'race_drivers', 'driver_id', 'race_id');
     }
 }

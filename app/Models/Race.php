@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class Race extends Model
 {
@@ -19,10 +20,10 @@ class Race extends Model
     {
         return $this->belongsTo(Speedway::class);
     }
-
-    public function responsible()
+    
+    public function drivers() : BelongsToMany
     {
-        return $this->belongsTo(Responsible::class);
+        return $this->belongsToMany(Driver::class, 'race_drivers', 'race_id', 'driver_id');
     }
 
 }

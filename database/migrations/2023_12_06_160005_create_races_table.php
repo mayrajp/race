@@ -22,7 +22,6 @@ return new class extends Migration
             $table->boolean('is_canceled');
             $table->integer('maximum_number_of_drivers');
             $table->foreignId('speedway_id')->constrained('speedways');
-            $table->foreignId('responsible')->constrained('responsibles');
             $table->timestamps();
         });
     }

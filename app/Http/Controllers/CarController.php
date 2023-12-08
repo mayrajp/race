@@ -2,18 +2,16 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\AttachDriversRequest;
-use App\Http\Requests\RaceRequest;
-use App\Http\Services\RaceService;
+use App\Http\Requests\CarRequest;
+use App\Http\Services\CarService;
 
-class RaceController extends Controller
+class CarController extends Controller
 {
-   
-    private RaceService $service;
+    private CarService $service;
 
     public function __construct()
     {   
-        $this->service = new RaceService();
+        $this->service = new CarService();
     }
 
     public function index()
@@ -24,7 +22,7 @@ class RaceController extends Controller
     }
 
    
-    public function store(RaceRequest $request)
+    public function store(CarRequest $request)
     {
         $response = $this->service->store($request);
 
@@ -40,23 +38,16 @@ class RaceController extends Controller
     }
 
    
-    public function update(RaceRequest $request, int $id)
+    public function update(CarRequest $request, int $id)
     {
         $response = $this->service->update($request, $id);
 
         return response()->json($response->data, $response->code);
     }
 
-    public function cancelRace(int $id)
+    public function destroy(int $id)
     {
-        $response = $this->service->cancelRace($id);
-
-        return response()->json($response->data, $response->code);
-    }
-
-    public function attachDrivers(AttachDriversRequest $request)
-    {
-        $response = $this->service->attachDrivers($request);
+        $response = $this->service->destroy($id);
 
         return response()->json($response->data, $response->code);
     }

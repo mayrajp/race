@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('model');
             $table->string('brand');
-            $table->date('year');
+            $table->integer('year');
             $table->string('color');
             $table->json('speedway_types');
             $table->foreignId('driver_id')->constrained('drivers');

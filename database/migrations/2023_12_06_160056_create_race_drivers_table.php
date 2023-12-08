@@ -15,8 +15,12 @@ return new class extends Migration
     {
         Schema::create('race_drivers', function (Blueprint $table) {
             $table->id();
-            $table->foreignUuid('driver_id');
-            $table->foreignUuid('race_id');
+            $table->unsignedBiginteger('driver_id')->unsigned();
+            $table->unsignedBiginteger('race_id')->unsigned();
+            $table->foreign('driver_id')->references('id')
+                 ->on('drivers')->onDelete('cascade');
+            $table->foreign('race_id')->references('id')
+                ->on('races')->onDelete('cascade');
             $table->timestamps();
         });
     }

@@ -16,9 +16,9 @@ return new class extends Migration
         Schema::create('speedways', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->integer('kilometers');
             $table->boolean('in_maintenance');
             $table->string('type');
+            $table->boolean('is_active');
             $table->timestamps();
         });
     }

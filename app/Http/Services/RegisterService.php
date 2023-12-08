@@ -17,7 +17,7 @@ class RegisterService extends BaseService
 
         $data['password'] = bcrypt($data['password']);
         $user = User::create($data);
-        $success['token'] =  $user->createToken('MyApp')->plainTextToken;
+        $success['token'] =  $user->createToken('raceApp')->plainTextToken;
         
         return $this->success([$success], JsonResponse::HTTP_CREATED);
 
@@ -27,12 +27,12 @@ class RegisterService extends BaseService
     {
         if(Auth::attempt(['email' => $request->email, 'password' => $request->password])){ 
             $user = Auth::user(); 
-            $success['token'] =  $user->createToken('MyApp')->plainTextToken; 
+            $success['token'] =  $user->createToken('raceApp')->plainTextToken; 
    
             return $this->success([$success], JsonResponse::HTTP_OK);
         } 
         else{ 
-            return $this->error([] , JsonResponse::HTTP_UNAUTHORIZED);
+            return $this->error(['Unauthorized.'] , JsonResponse::HTTP_UNAUTHORIZED);
         } 
     }
     
