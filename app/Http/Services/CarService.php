@@ -37,7 +37,7 @@ class CarService extends BaseService
 
         $car->save();
 
-        return $this->success(new CarResource($car));
+        return $this->success(new CarResource($car), JsonResponse::HTTP_CREATED);
     }
 
 

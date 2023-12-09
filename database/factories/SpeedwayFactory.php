@@ -18,9 +18,9 @@ class SpeedwayFactory extends Factory
     {
         return [
             'name' => $this->faker->name,
-            'in_maintenance' => $this->faker->boolean,
+            'in_maintenance' => false,
             'type' => 'Rally Courses',
-            'is_active' => $this->faker->boolean,
+            'is_active' => true,
         ];
     }
 }
