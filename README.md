@@ -38,6 +38,12 @@ Create a speedway, a driver and a car associated with the created driver. Then y
 
 `php artisan migrate`
 
+### Run project
+
+`php artisan serve`
+
+## Test app
+
 ### Config test database
 
 `php artisan migrate --database=mysql_test`
